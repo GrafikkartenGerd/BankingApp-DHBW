@@ -48,7 +48,4 @@ public class BankKunden {
     }
 
 
-
-public class BankKunden {
-
-}
+    
