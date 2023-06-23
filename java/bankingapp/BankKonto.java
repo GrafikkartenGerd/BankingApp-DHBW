@@ -1,4 +1,4 @@
-package BankingApp;
+package java.bankingapp;
 
 abstract class BankKonto {
 
