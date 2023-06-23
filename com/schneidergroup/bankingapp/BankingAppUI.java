@@ -96,7 +96,7 @@ public class BankingAppUI extends JFrame {
     private static void showLoginWindow() {
         JFrame loginFrame = new JFrame("Login");
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        loginFrame.setSize(300, 150);
+        loginFrame.setSize(400, 250);
         loginFrame.setLayout(new BorderLayout());
 
         JPanel panel = new JPanel(new GridLayout(3, 2, 10, 10));

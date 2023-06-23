@@ -18,7 +18,7 @@ abstract class Konto {
     }
     public void auszahlen(double betrag){
 
-        if(Kontostand - betrag <)
+        //if(Kontostand - betrag <)
 
         Kontostand -= betrag;
     }
