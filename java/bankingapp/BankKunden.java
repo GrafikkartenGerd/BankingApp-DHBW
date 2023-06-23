@@ -46,5 +46,6 @@ public class BankKunden {
     public void setGeburtstag(String geburtstag) {
         Geburtstag = geburtstag;
     }
+}
 
 
