@@ -1,5 +1,7 @@
 package com.schneidergroup.bankingapp;
 
+import com.formdev.flatlaf.FlatDarkLaf;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,81 +17,70 @@ public class BankingAppUI extends JFrame {
     public BankingAppUI() {
         setTitle("Banking App");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridLayout(6, 2, 10, 10)); // 6 Zeilen, 2 Spalten, Abstand von 10 Pixeln
+        setLayout(new GridLayout(6, 2, 10, 10)); // 6 rows, 2 columns, 10-pixel gap
 
-        // Name
-        JLabel nameLabel = new JLabel("Name:");
-        nameField = new JTextField(20);
-        JPanel namePanel = new JPanel();
-        namePanel.add(nameLabel);
-        namePanel.add(nameField);
+        Color darkBlue = new Color(0,0,128);
 
-        // Vorname
-        JLabel vornameLabel = new JLabel("Vorname:");
-        vornameField = new JTextField(20);
-        JPanel vornamePanel = new JPanel();
-        vornamePanel.add(vornameLabel);
-        vornamePanel.add(vornameField);
+        // Set flat dark look and feel
+        FlatDarkLaf.install();
 
-        // Email
-        JLabel emailLabel = new JLabel("Email:");
-        emailField = new JTextField(20);
-        JPanel emailPanel = new JPanel();
-        emailPanel.add(emailLabel);
-        emailPanel.add(emailField);
+        // Change the default color theme
+        UIManager.put("Component.arrowType", "chevron");
+        UIManager.put("Button.arc", 999); // max rounded corners
+        UIManager.put("Component.focusWidth", 1);
+        UIManager.put("Button.background", darkBlue);
+        UIManager.put("Button.foreground", Color.WHITE);
 
-        // Telefonnummer
-        JLabel telefonnummerLabel = new JLabel("Telefonnummer:");
-        telefonnummerField = new JTextField(20);
-        JPanel telefonnummerPanel = new JPanel();
-        telefonnummerPanel.add(telefonnummerLabel);
-        telefonnummerPanel.add(telefonnummerField);
-
-        // Adresse
-        JLabel adresseLabel = new JLabel("Adresse:");
-        adresseField = new JTextField(20);
-        JPanel adressePanel = new JPanel();
-        adressePanel.add(adresseLabel);
-        adressePanel.add(adresseField);
-
-        // Button
-        JButton createButton = new JButton("Kunden erstellen");
-        createButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Hier kannst du den Code einfügen, um einen Kunden zu erstellen
-                String name = nameField.getText();
-                String vorname = vornameField.getText();
-                String email = emailField.getText();
-                String telefonnummer = telefonnummerField.getText();
-                String adresse = adresseField.getText();
-
-                // Hier kannst du den Kunden erstellen und weitere Aktionen ausführen
-                // ...
-
-                // Beispiel-Ausgabe zur Demonstration
-                System.out.println("Kunde erstellt: " + name + " " + vorname);
-            }
-        });
-
-        // UI-Komponenten zur UI hinzufügen
-        add(namePanel);
-        add(vornamePanel);
-        add(emailPanel);
-        add(telefonnummerPanel);
-        add(adressePanel);
-        add(createButton);
+        createAndAddComponents();
 
         pack();
-        setLocationRelativeTo(null); // Zentrieren der UI auf dem Bildschirm
+        setLocationRelativeTo(null); // Center the UI on the screen
         setVisible(true);
     }
 
+    // Move the creation and adding of components to a separate method
+    private void createAndAddComponents() {
+        add(createFieldPanel("Name:", nameField = new JTextField(20)));
+        add(createFieldPanel("Vorname:", vornameField = new JTextField(20)));
+        add(createFieldPanel("Email:", emailField = new JTextField(20)));
+        add(createFieldPanel("Telefonnummer:", telefonnummerField = new JTextField(20)));
+        add(createFieldPanel("Adresse:", adresseField = new JTextField(20)));
+        add(createButton());
+    }
+
+    // Create a method that creates a panel for a label and a text field
+    private JPanel createFieldPanel(String labelText, JTextField textField) {
+        JLabel label = new JLabel(labelText);
+        label.setForeground(Color.WHITE); // Set label color to white
+
+        JPanel panel = new JPanel();
+        panel.add(label);
+        panel.add(textField);
+
+        return panel;
+    }
+
+    // Create a method that creates the button
+    private JButton createButton() {
+        JButton button = new JButton("Kunden erstellen");
+
+        button.addActionListener(e -> {
+            String name = nameField.getText();
+            String vorname = vornameField.getText();
+            String email = emailField.getText();
+            String telefonnummer = telefonnummerField.getText();
+            String adresse = adresseField.getText();
+
+            System.out.println("Kunde erstellt: " + name + " " + vorname);
+        });
+
+        return button;
+    }
+
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                showLoginWindow();
-            }
+        SwingUtilities.invokeLater(() -> {
+            FlatDarkLaf.install(); // Install FlatLaf look and feel
+            showLoginWindow();
         });
     }
 
@@ -99,9 +90,23 @@ public class BankingAppUI extends JFrame {
         loginFrame.setSize(400, 250);
         loginFrame.setLayout(new BorderLayout());
 
+        Color darkBlue = new Color(0,0,128);
+
+        // Set flat dark look and feel
+        FlatDarkLaf.install();
+
+        // Change the default color theme
+        UIManager.put("Component.arrowType", "chevron");
+        UIManager.put("Button.arc", 999); // max rounded corners
+        UIManager.put("Component.focusWidth", 1);
+        UIManager.put("Button.background", darkBlue);
+        UIManager.put("Button.foreground", Color.WHITE);
+
         JPanel panel = new JPanel(new GridLayout(3, 2, 10, 10));
         JLabel userLabel = new JLabel("Benutzername:");
+        userLabel.setForeground(Color.WHITE);
         JLabel passwordLabel = new JLabel("Passwort:");
+        passwordLabel.setForeground(Color.WHITE);
         JTextField userField = new JTextField(20);
         JPasswordField passwordField = new JPasswordField(20);
         JButton loginButton = new JButton("Login");
@@ -114,7 +119,7 @@ public class BankingAppUI extends JFrame {
                     loginFrame.setVisible(false);
                     new BankingAppUI();
                 } else {
-                    JOptionPane.showMessageDialog(loginFrame, "Falscher Benutzername oder Passwort!");
+                    JOptionPane.showMessageDialog(loginFrame, "Falscher Benutzername oder Passwort!", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -123,19 +128,17 @@ public class BankingAppUI extends JFrame {
         panel.add(userField);
         panel.add(passwordLabel);
         panel.add(passwordField);
-        panel.add(new JLabel()); // Leeres Label für Platzhalter
+        panel.add(new JLabel()); // Empty label for placeholder
         panel.add(loginButton);
 
         loginFrame.add(panel, BorderLayout.CENTER);
-        loginFrame.setLocationRelativeTo(null); // Zentrieren des Login-Fensters
+        loginFrame.setLocationRelativeTo(null); // Center the login window
         loginFrame.setVisible(true);
     }
 
     private static boolean authenticateUser(String username, String password) {
-        // Hier kannst du die Authentifizierung der Benutzer implementieren
-        // Überprüfe, ob der Benutzername und das Passwort gültig sind
-        // Rückgabe: true, wenn die Authentifizierung erfolgreich ist, ansonsten false
-        // Beispiel:
+        // Implement user authentication here
         return username.equals("admin") && password.equals("1234");
     }
 }
+
