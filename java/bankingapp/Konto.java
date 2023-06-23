@@ -1,15 +1,8 @@
 package java.bankingapp;
 
-abstract class BankKonto {
-
+abstract class Konto {
     private String Kontonummer;
     private double Kontostand;
-
-    public BankKonto(String kontonummer, double kontostand){
-        this.Kontonummer = kontonummer;
-        this.Kontostand = kontostand;
-    }
-
     public String getKontonummer(){
         return Kontonummer;
     }
