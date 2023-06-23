@@ -3,9 +3,13 @@ package java.bankingapp;
 abstract class Konto {
     private String Kontonummer;
     private double Kontostand;
-    public String getKontonummer(){
+
+    private double Dispo;
+    public String getKontoNummer(){
         return Kontonummer;
     }
+
+    public double getDispo() {return Dispo;}
     public double getKontostand(){
         return Kontostand;
     }
