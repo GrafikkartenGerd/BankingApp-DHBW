@@ -1,4 +1,4 @@
 package java.bankingapp;
 
-public class Bank_Kunden {
+public class BankKunden {
 }
