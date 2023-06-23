@@ -1,4 +1,4 @@
-package java.bankingapp;
+package com.schneidergroup.bankingapp;
 
 abstract class Konto {
     private String Kontonummer;

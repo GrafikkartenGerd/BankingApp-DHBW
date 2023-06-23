@@ -1,4 +1,4 @@
-package java.bankingapp;
+package com.schneidergroup.bankingapp;
 
 public class Baenker {
     private String login;

@@ -1,4 +1,4 @@
-package java.bankingapp;
+package com.schneidergroup.bankingapp;
 import java.util.Date;
 
 class Festgeldkonto extends Konto {

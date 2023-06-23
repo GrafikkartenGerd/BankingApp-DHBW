@@ -1,4 +1,4 @@
-package java.bankingapp;
+package com.schneidergroup.bankingapp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
