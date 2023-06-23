@@ -1,5 +1,4 @@
-<<<<<<< HEAD:BankingApp/BankKunden.java
-package BankingApp;
+package java.bankingapp;
 
 public class BankKunden {
     public String Name;
@@ -47,9 +46,9 @@ public class BankKunden {
     public void setGeburtstag(String geburtstag) {
         Geburtstag = geburtstag;
     }
-=======
-package java.bankingapp;
+
+
 
 public class BankKunden {
->>>>>>> 96f225720da2a15d912f53acb610c9a3682b2425:java/bankingapp/BankKunden.java
+
 }
