@@ -1,4 +1,5 @@
 package com.schneidergroup.bankingapp;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -84,4 +85,57 @@ public class BankingAppUI extends JFrame {
         setVisible(true);
     }
 
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                showLoginWindow();
+            }
+        });
+    }
+
+    private static void showLoginWindow() {
+        JFrame loginFrame = new JFrame("Login");
+        loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        loginFrame.setSize(300, 150);
+        loginFrame.setLayout(new BorderLayout());
+
+        JPanel panel = new JPanel(new GridLayout(3, 2, 10, 10));
+        JLabel userLabel = new JLabel("Benutzername:");
+        JLabel passwordLabel = new JLabel("Passwort:");
+        JTextField userField = new JTextField(20);
+        JPasswordField passwordField = new JPasswordField(20);
+        JButton loginButton = new JButton("Login");
+        loginButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String username = userField.getText();
+                String password = new String(passwordField.getPassword());
+
+                if (authenticateUser(username, password)) {
+                    loginFrame.setVisible(false);
+                    new BankingAppUI();
+                } else {
+                    JOptionPane.showMessageDialog(loginFrame, "Falscher Benutzername oder Passwort!");
+                }
+            }
+        });
+
+        panel.add(userLabel);
+        panel.add(userField);
+        panel.add(passwordLabel);
+        panel.add(passwordField);
+        panel.add(new JLabel()); // Leeres Label für Platzhalter
+        panel.add(loginButton);
+
+        loginFrame.add(panel, BorderLayout.CENTER);
+        loginFrame.setLocationRelativeTo(null); // Zentrieren des Login-Fensters
+        loginFrame.setVisible(true);
+    }
+
+    private static boolean authenticateUser(String username, String password) {
+        // Hier kannst du die Authentifizierung der Benutzer implementieren
+        // Überprüfe, ob der Benutzername und das Passwort gültig sind
+        // Rückgabe: true, wenn die Authentifizierung erfolgreich ist, ansonsten false
+        // Beispiel:
+        return username.equals("admin") && password.equals("1234");
+    }
 }
