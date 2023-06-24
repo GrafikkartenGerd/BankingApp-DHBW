@@ -91,15 +91,6 @@ public class BankingAppUI extends JFrame {
 
         return button;
     }
-
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            FlatDarkLaf.install(); // Install FlatLaf look and feel
-            showLoginWindow();
-        });
-    }
-
     private static void showLoginWindow() {
         JFrame loginFrame = new JFrame("Login");
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
