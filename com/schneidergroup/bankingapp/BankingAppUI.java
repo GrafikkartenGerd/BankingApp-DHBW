@@ -62,7 +62,7 @@ public class BankingAppUI extends JFrame {
 
     // Create a method that creates the button
     private JButton createButton() {
-        JButton button = new JButton("Kunden erstellen");
+        JButton button = new JButton("Registrieren");
 
         button.addActionListener(e -> {
             String name = nameField.getText();
@@ -71,11 +71,12 @@ public class BankingAppUI extends JFrame {
             String telefonnummer = telefonnummerField.getText();
             String adresse = adresseField.getText();
 
-            System.out.println("Kunde erstellt: " + name + " " + vorname);
+            System.out.println("Regestrieren: " + name + " " + vorname);
         });
 
         return button;
     }
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
