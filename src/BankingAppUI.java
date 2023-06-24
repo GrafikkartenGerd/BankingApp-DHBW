@@ -1,5 +1,3 @@
-package com.schneidergroup.bankingapp;
-
 import com.formdev.flatlaf.FlatDarkLaf;
 
 import javax.swing.*;

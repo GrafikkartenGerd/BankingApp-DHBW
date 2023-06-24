@@ -1,5 +1,3 @@
-package com.schneidergroup.bankingapp;
-
 import javax.swing.*;
 
 public class Main {

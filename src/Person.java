@@ -1,4 +1,4 @@
-package com.schneidergroup.bankingapp;
+
 import java.util.Date;
 
 class Person {
