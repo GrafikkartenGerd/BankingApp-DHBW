@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/BankingApp-DHBW.iml" filepath="$PROJECT_DIR$/.idea/BankingApp-DHBW.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BankingApp-DHBW.iml" filepath="$PROJECT_DIR$/BankingApp-DHBW.iml" />
     </modules>
   </component>
 </project>
