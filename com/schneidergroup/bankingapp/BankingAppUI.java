@@ -13,13 +13,15 @@ public class BankingAppUI extends JFrame {
     private JTextField emailField;
     private JTextField telefonnummerField;
     private JTextField adresseField;
+    private JTextField usernameField;
+    private JPasswordField passwordField;
 
     public BankingAppUI() {
         setTitle("Banking App");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridLayout(6, 2, 10, 10)); // 6 rows, 2 columns, 10-pixel gap
+        setLayout(new GridLayout(8, 2, 10, 10)); // 8 rows, 2 columns, 10-pixel gap
 
-        Color darkBlue = new Color(0,0,128);
+        Color darkBlue = new Color(0, 0, 128);
 
         // Set flat dark look and feel
         FlatDarkLaf.install();
@@ -45,6 +47,15 @@ public class BankingAppUI extends JFrame {
         add(createFieldPanel("Email:", emailField = new JTextField(20)));
         add(createFieldPanel("Telefonnummer:", telefonnummerField = new JTextField(20)));
         add(createFieldPanel("Adresse:", adresseField = new JTextField(20)));
+
+        add(new JLabel("Benutzername:"));
+        usernameField = new JTextField(20);
+        add(usernameField);
+
+        add(new JLabel("Passwort:"));
+        passwordField = new JPasswordField(20);
+        add(passwordField);
+
         add(createButton());
     }
 
@@ -70,8 +81,12 @@ public class BankingAppUI extends JFrame {
             String email = emailField.getText();
             String telefonnummer = telefonnummerField.getText();
             String adresse = adresseField.getText();
+            String username = usernameField.getText();
+            String password = new String(passwordField.getPassword());
 
-            System.out.println("Regestrieren: " + name + " " + vorname);
+            System.out.println("Registrieren: " + name + " " + vorname);
+            System.out.println("Benutzername: " + username);
+            System.out.println("Passwort: " + password);
         });
 
         return button;
@@ -91,7 +106,7 @@ public class BankingAppUI extends JFrame {
         loginFrame.setSize(400, 250);
         loginFrame.setLayout(new BorderLayout());
 
-        Color darkBlue = new Color(0,0,128);
+        Color darkBlue = new Color(0, 0, 128);
 
         // Set flat dark look and feel
         FlatDarkLaf.install();
@@ -103,7 +118,7 @@ public class BankingAppUI extends JFrame {
         UIManager.put("Button.background", darkBlue);
         UIManager.put("Button.foreground", Color.WHITE);
 
-        JPanel panel = new JPanel(new GridLayout(3, 2, 10, 10));
+        JPanel panel = new JPanel(new GridLayout(4, 2, 10, 10));
         JLabel userLabel = new JLabel("Benutzername:");
         userLabel.setForeground(Color.WHITE);
         JLabel passwordLabel = new JLabel("Passwort:");
@@ -142,4 +157,3 @@ public class BankingAppUI extends JFrame {
         return username.equals("admin") && password.equals("1234");
     }
 }
-
